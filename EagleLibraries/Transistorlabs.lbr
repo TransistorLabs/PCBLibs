@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -311,6 +311,23 @@
 <wire x1="0.825" y1="-0.605" x2="1.375" y2="-0.605" width="0.1" layer="21"/>
 <wire x1="0.825" y1="2.2" x2="1.375" y2="2.2" width="0.1" layer="21"/>
 </package>
+<package name="SWITCH_CHERRY-MX1A-W/FIXATION">
+<hole x="0" y="0" drill="3.9878"/>
+<pad name="2" x="2.54" y="5.08" drill="1.5" shape="octagon"/>
+<pad name="1" x="-3.81" y="2.54" drill="1.5" shape="octagon"/>
+<hole x="5.08" y="0" drill="1.7018"/>
+<hole x="-5.08" y="0" drill="1.7018"/>
+<polygon width="0.127" layer="21" spacing="8.89" pour="hatch">
+<vertex x="5.82395" y="-7.62"/>
+<vertex x="-5.82395" y="-7.62" curve="-90"/>
+<vertex x="-7.62" y="-5.82395"/>
+<vertex x="-7.62" y="5.82395" curve="-90"/>
+<vertex x="-5.82395" y="7.62"/>
+<vertex x="5.82395" y="7.62" curve="-90"/>
+<vertex x="7.62" y="5.82395"/>
+<vertex x="7.62" y="-5.82395" curve="-90"/>
+</polygon>
+</package>
 </packages>
 <symbols>
 <symbol name="ATTINY25/45/85">
@@ -477,6 +494,13 @@
 <text x="0" y="55.88" size="1.27" layer="94">&gt;NAME</text>
 <text x="2.54" y="-5.08" size="1.27" layer="94">ATmegaXU2</text>
 <pin name="GND@2" x="-5.08" y="2.54" length="middle" direction="pwr"/>
+</symbol>
+<symbol name="SWITCH-NO-2-PIN">
+<wire x1="-2.54" y1="0" x2="-5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="-2.54" y2="2.54" width="0.254" layer="94"/>
+<pin name="1" x="-5.08" y="0" length="point"/>
+<pin name="2" x="5.08" y="0" length="point" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -706,6 +730,28 @@ The LM74 is a temperature sensor that utilizes the SPI communication protocol wi
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="3"/>
 <connect gate="G$1" pin="GND" pad="2 4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SWITCH_CHERRY_MX1A-STANDARD">
+<description>MX1A Standard Cherry Switch
+-
+No LED
+No Diode
+-
+Includes Fixation Pin holes</description>
+<gates>
+<gate name="G$1" symbol="SWITCH-NO-2-PIN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SWITCH_CHERRY-MX1A-W/FIXATION">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
